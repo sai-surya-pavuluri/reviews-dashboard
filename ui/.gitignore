@@ -7,15 +7,34 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
 *.local
+
+# Python / Backend
+.venv/           # virtual environment
+__pycache__/     # compiled python cache
+*.pyc            # compiled python files
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+
+# Build artifacts
+*.egg
+*.whl
+
+# Environment / Config
+.env
+.env.*
+*.sqlite3
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
