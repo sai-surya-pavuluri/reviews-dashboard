@@ -70,10 +70,25 @@ def createReview():
 
     return {"inserted_ids": inserted_ids}, 201
 
-@app.route("/api/reviews/", methods=['GET'])
+@app.route("/api/reviews", methods=['GET'])
 def retrieveReviews():
     reviews = Review.query.all()
     return {"reviews": [review.to_dict() for review in reviews]}
+
+@app.route("/api/reviews/<int:review_id>", methods=['PATCH'])
+def approveReview(review_id):
+    review = Review.query.get(review_id)
+    if not review:
+        return {"error": "Review not found"}, 404
+
+    data = request.json
+    approved = data.get("approved")
+    if approved is None:
+        return {"error": "Missing 'approved' field"}, 400
+    review.approved = approved
+
+    db.session.commit()
+    return {"message": "Review approved successfully"}
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=1234)

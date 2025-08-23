@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { fetchReviews, toggleApproved } from "../api";
+import TrendsPanel from "./TrendsPanel";
 
 export default function ManagerDashboard() {
-  // --- state
+  
   const [loading, setLoading] = useState(false);
   const [rows, setRows] = useState([]);
   const [filters, setFilters] = useState({
@@ -30,13 +31,15 @@ export default function ManagerDashboard() {
     }
   };
 
-  useEffect(()=>{ load(); /* eslint-disable-next-line */}, [filters.listingId, filters.minRating, filters.channel, filters.approved]);
+  useEffect(()=>{ load();}, [filters.listingId, filters.minRating, filters.channel, filters.approved]);
 
-  // --- derived KPIs (client-side)
   const kpis = useMemo(()=>{
     const rated = rows.filter(r=>r.rating!=null);
     const avg = rated.length ? (rated.reduce((s,r)=>s+r.rating,0)/rated.length).toFixed(2) : null;
-    return { count: rows.length, avgRating: avg };
+    const approved = rows.filter(r=>r.approved).length;
+    if (approved === 0) return { count: rows.length, avgRating: avg, percentApproved: 0 };
+    const percentApproved = (approved / rows.length * 100).toFixed(2);
+    return { count: rows.length, avgRating: avg, percentApproved: percentApproved };
   }, [rows]);
 
   // --- approve toggle
@@ -86,7 +89,7 @@ export default function ManagerDashboard() {
         <div style={{display:"flex", gap:16, margin:"8px 0 16px"}}>
         <KpiCard label="Total Reviews" value={kpis.count} />
         <KpiCard label="Avg Rating" value={kpis.avgRating ?? "—"} />
-        {/* TODO (you): add % approved */}
+        <KpiCard label="Approved %" value={`${kpis.percentApproved}%`} />
         </div>
     );
   }
@@ -125,17 +128,25 @@ export default function ManagerDashboard() {
                     <td>{r.listingId}</td>
                     <td>{r.guestName ?? "—"}</td>
                     <td>{r.rating ?? "—"}</td>
-                    <td>
-                    {/* TODO (you): render chips from r.categories */}
-                    {/* tiny example: */}
-                    <div style={{display:"flex",gap:4,flexWrap:"wrap",maxWidth:160}}>
-                        {(r.categories||[]).slice(0,3).map((c,i)=>(
-                        <span key={i} style={{fontSize:12, border:"1px solid #eee", borderRadius:6, padding:"2px 6px"}}>
-                            {c.category}:{c.rating}
-                        </span>
-                        ))}
-                    </div>
+                    <td> <div style={{display: "flex", gap: 4, flexWrap: "wrap", maxWidth: 160}}>
+                        {r.cleanliness_rating != null && (
+                          <span style={{fontSize:12, border:"1px solid #eee", borderRadius:6, padding:"2px 6px"}}>
+                            cleanliness: {r.cleanliness_rating}
+                          </span>
+                        )}
+                        {r.communication_rating != null && (
+                          <span style={{fontSize:12, border:"1px solid #eee", borderRadius:6, padding:"2px 6px"}}>
+                            communication: {r.communication_rating}
+                          </span>
+                        )}
+                        {r.respect_house_rules_rating != null && (
+                          <span style={{fontSize:12, border:"1px solid #eee", borderRadius:6, padding:"2px 6px"}}>
+                            respect: {r.respect_house_rules_rating}
+                          </span>
+                        )}
+                      </div>
                     </td>
+                  
                     <td style={{maxWidth:360, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis"}}>
                     {r.publicText}
                     </td>
@@ -159,7 +170,7 @@ export default function ManagerDashboard() {
 
   return (
     <div style={{maxWidth:1100, margin:"24px auto", padding:"0 16px"}}>
-      <h1>Reviews Dashboard</h1>
+      <h2>Reviews Dashboard</h2>
 
       <FiltersBar filters={filters} setFilters={setFilters} loading={loading} reload={load} />
 
@@ -167,7 +178,7 @@ export default function ManagerDashboard() {
 
       <ReviewsTable rows={rows} loading={loading} onToggle={onToggle} />
       
-      {/* TODO (you): add <TrendsPanel rows={rows}/> for rating-over-time sparkline */}
+      <TrendsPanel rows={rows}/>
     </div>
   );
 }

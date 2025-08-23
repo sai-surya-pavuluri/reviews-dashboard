@@ -1,51 +1,57 @@
 import { useEffect, useState } from "react";
-import { fetchPublicReviews } from "../api";
+import { fetchReviews, fetchReviewsByFilters } from "../api";
+import ReviewCard from "./ReviewCard";
+import propertyImage from '../assets/property.png';
 
 export default function PropertyPage() {
-  const [listingId, setListingId] = useState("");   // TODO (you): hardcode one for demo
-  const [items, setItems] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const load = async () => {
-    if (!listingId) return;
-    const { data } = await fetchPublicReviews(listingId);
-    setItems(data || []);
-  };
-
-  useEffect(()=>{ /* TODO (you): call load on mount with default listingId */ }, []);
+  useEffect(() => {
+    const load = async () => {
+      setLoading(true);
+      try {
+        const { data } = await fetchReviewsByFilters({ approved: "true" });
+        setReviews(data.reviews || []);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
 
   return (
-    <div style={{maxWidth:1000, margin:"24px auto", padding:"0 16px"}}>
-      {/* Hero / Property header */}
-      <section style={{margin:"8px 0 16px"}}>
-        <h1 style={{fontSize:28, marginBottom:4}}>Property Title (Mock)</h1>
-        <div style={{color:"#666"}}>Location • Sleeps 4 • 2 Beds</div>
-      </section>
+    <div style={{ maxWidth: 900, margin: "24px auto", padding: "0 16px" }}>
+      {/* Property Header */}
+      <img
+        src={propertyImage}
+        alt="Property"
+        style={{ width: "100%", height: "auto", borderRadius: 12 }}
+      />
+      <h2 style={{ marginTop: 16 }}>Beautiful London Apartment</h2>
+      <p style={{ color: "#666", fontSize: 15 }}>
+        Discover what guests are saying about this elegant London property.
+      </p>
 
-      {/* Reviews Section */}
-      <section style={{marginTop:24}}>
-        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-          <h2>Guest reviews</h2>
-          <div>
-            <input placeholder="Listing ID" value={listingId} onChange={e=>setListingId(e.target.value)} />
-            <button onClick={load} disabled={!listingId}>Load</button>
-          </div>
-        </div>
-        <p style={{color:"#666", marginTop:4}}>Only manager-approved reviews are displayed.</p>
-
-        <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginTop:12}}>
-          {items.map(r=>(
-            <article key={r.id} style={{border:"1px solid #eee", borderRadius:10, padding:12}}>
-              <div style={{fontWeight:600}}>{r.guestName ?? "Guest"}</div>
-              <div style={{fontSize:12, color:"#666"}}>
-                {r.submittedAt?.slice(0,10) ?? ""} • {r.rating ?? "—"}★
-              </div>
-              <p style={{marginTop:8}}>{r.text}</p>
-            </article>
+      {/* Review Section */}
+      {loading ? (
+        <p>Loading reviews…</p>
+      ) : !reviews.length ? (
+        <p>No approved reviews yet.</p>
+      ) : (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 24,
+            marginTop: 24
+          }}
+        >
+          {reviews.map((r) => (
+            <ReviewCard key={r.id} review={r} />
           ))}
         </div>
-
-        {!items.length && <p style={{marginTop:10}}>No approved reviews yet for this listing.</p>}
-      </section>
+      )}
     </div>
   );
 }
