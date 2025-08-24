@@ -21,11 +21,11 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    return send_from_directory("static", "index.html")
+    return send_from_directory("../backend/static", "index.html")
 
 @app.route("/<path:path>")
 def static_proxy(path):
-    return send_from_directory("static", path)
+    return send_from_directory("../backend/static", path)
 
 @app.route("/api/health")
 def apiHealth():
@@ -121,4 +121,5 @@ def delete_all_reviews():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host="0.0.0.0", port=port)

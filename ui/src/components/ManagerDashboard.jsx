@@ -205,20 +205,27 @@ export default function ManagerDashboard() {
   }
 
   return (
-    <div style={{ width: "100%", maxWidth: 1100, margin: "24px auto", padding: "0 16px" }}>
+    <div style={{
+        width: "1100px",
+        margin: "0 auto",
+        padding: "0 16px",
+        boxSizing: "border-box",
+      }}>
+
       <div
         style={{
           display: "flex",
           gap: 24,
           justifyContent: "space-between",
-          margin: "24px 0"
+          margin: "24px 0",
         }}
       >
         
         <div style={{ 
           flex: "0 0 35%", 
           display: "flex", 
-          flexDirection: "column", 
+          flexDirection: "column",
+          alignItems: 'flex-start',
           gap: 16,
           paddingTop: 24
         }}>
@@ -229,10 +236,12 @@ export default function ManagerDashboard() {
         </div>
 
       
-        <div style={{ flex: "0 0 60%" }}>
+        <div style={{ flex: "0 0 60%",flexGrow: 1, minHeight: 240, minWidth: 450 }}>
           <TrendsPanel rows={rows} />
         </div>
+
       </div>
+      <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "16px 0" }} />
       <button
         onClick={() => setShowFilters(f => !f)}
         style={{

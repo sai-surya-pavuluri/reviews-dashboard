@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: reviews-dashboard
+    runtime: python
+    buildCommand: |
+      cd ui
+      npm install
+      npm run build
+      cd ..
+    startCommand: python -m api.app
+    envVars:
+      - key: FLASK_ENV
+        value: production

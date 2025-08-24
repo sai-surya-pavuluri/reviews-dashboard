@@ -28,11 +28,17 @@ export default function PropertyPage() {
     : reviews;
 
   return (
-    <div style={{ maxWidth: 900, margin: "24px auto", padding: "0 16px" }}>
+    <div style={{
+        width: "1100px",
+        margin: "0 auto",
+        padding: "0 16px",
+        boxSizing: "border-box",
+      }}>
+        
       <img
         src={propertyImage}
         alt="Property"
-        style={{ width: "100%", height: "auto", borderRadius: 12 }}
+        style={{ width: "100%", height: "350px", borderRadius: 12 }}
       />
       <h2 style={{ marginTop: 16 }}>Guest Reviews</h2>
       <p style={{ color: "#666", fontSize: 15 }}>
@@ -46,7 +52,7 @@ export default function PropertyPage() {
           value={selectedProperty}
           onChange={e => setSelectedProperty(e.target.value)}
         >
-          <option value="">All Properties</option>
+          <option value="">All</option>
           {uniqueProperties.map(p => (
             <option key={p} value={p}>{p}</option>
           ))}
