@@ -12,7 +12,6 @@ export default function ReviewCard({ review }) {
         justifyContent: "space-between"
       }}
     >
-      {/* Review Text */}
       <div
         style={{
           padding: "16px",
@@ -27,7 +26,6 @@ export default function ReviewCard({ review }) {
         “{review.public_review || "No comment provided."}”
       </div>
 
-      {/* Metadata */}
       <div style={{ padding: "16px" }}>
         <div style={{ fontWeight: "bold", marginBottom: 4 }}>
           {review.guestName}
@@ -37,16 +35,15 @@ export default function ReviewCard({ review }) {
           {review.rating ?? "—"}/5
         </div>
 
-        {/* Ratings Tags */}
         <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
           {review.cleanliness_rating != null && (
-            <Tag label="🧼 Clean:" value={review.cleanliness_rating} />
+            <Tag label="🧼 Cleanliness:" value={review.cleanliness_rating} />
           )}
           {review.communication_rating != null && (
-            <Tag label="💬 Comm:" value={review.communication_rating} />
+            <Tag label="💬 Communication:" value={review.communication_rating} />
           )}
           {review.respect_house_rules_rating != null && (
-            <Tag label="🏠 Respect:" value={review.respect_house_rules_rating} />
+            <Tag label="🏠 House Rules:" value={review.respect_house_rules_rating} />
           )}
         </div>
       </div>
