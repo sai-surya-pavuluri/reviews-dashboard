@@ -80,9 +80,5 @@ npm run dev  # Runs at http://localhost:5173
 
 ### 🙌 Final Notes
 
-The assessment has been designed with scalability and real-world data handling in mind. The dashboard allows property managers to take fast and confident actions, and the public review section makes sure only curated reviews are shown — just as Flex intended.
-
-Looking forward to the next step!
-
-— Sai
+The assessment has been designed with scalability and real-world data handling in mind. The dashboard allows property managers to take fast and confident actions, and the public review section makes sure only curated reviews are shown — just as Flex intended. Thank you for giving me this opportunity. Looking forward to the next step!
 
