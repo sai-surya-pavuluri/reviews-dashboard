@@ -2,7 +2,6 @@ from flask import Flask, request
 from flask_cors import CORS
 from backend.models import Review
 from api.db import db
-import json
 from dateutil import parser
 import sys
 import os
@@ -11,7 +10,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 app = Flask(__name__)
 CORS(app)
 
-# Connecting to SQL Alchemy db of Flask
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -60,7 +58,7 @@ def createReview():
             guest_name=review_data["guestName"],
             listing_name=review_data["listingName"],
             submitted_at=parser.parse(review_data["submittedAt"]),
-            channel="unknown",
+            channel="hostaway",
             approved=False,
         )
 
@@ -70,10 +68,27 @@ def createReview():
 
     return {"inserted_ids": inserted_ids}, 201
 
-@app.route("/api/reviews", methods=['GET'])
+@app.route("/api/reviews", methods=["GET"])
 def retrieveReviews():
-    reviews = Review.query.all()
-    return {"reviews": [review.to_dict() for review in reviews]}
+    listing_id = request.args.get("listingId")
+    min_rating = request.args.get("minRating", type=float)
+    approved = request.args.get("approved")
+    channel = request.args.get("channel")
+
+    query = Review.query
+
+    if listing_id:
+        query = query.filter_by(listing_id=listing_id)
+    if min_rating:
+        query = query.filter(Review.rating >= min_rating)
+    if approved in ["true", "false"]:
+        query = query.filter_by(approved=(approved == "true"))
+    if channel:
+        query = query.filter_by(channel=channel)
+
+    reviews = query.all()
+    return {"reviews": [r.to_dict() for r in reviews]}
+
 
 @app.route("/api/reviews/<int:review_id>", methods=['PATCH'])
 def approveReview(review_id):
@@ -90,5 +105,12 @@ def approveReview(review_id):
     db.session.commit()
     return {"message": "Review approved successfully"}
 
+@app.route("/api/reviews/delete_all", methods=["DELETE"])
+def delete_all_reviews():
+    Review.query.delete()
+    db.session.commit()
+    return {"message": "All reviews deleted."}, 200
+
+
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=1234)
+    app.run(debug=True, host="0.0.0.0", port=5000)

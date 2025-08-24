@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://bug-free-space-goldfish-p5x6r6xvj9vc99p7-1234.app.github.dev",
+  baseURL: "http://localhost:5000",
 });
 
 // Get all reviews (no filters)

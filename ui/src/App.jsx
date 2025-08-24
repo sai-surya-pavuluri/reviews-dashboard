@@ -10,6 +10,7 @@ export default function App() {
 
   return (
     <div>
+      <h2>Reviews Dashboard</h2>
       <nav style={{display:"flex",gap:12,padding:12,borderBottom:"1px solid #eee"}}>
         <button onClick={()=>setRoute("dashboard")}>
           <img 

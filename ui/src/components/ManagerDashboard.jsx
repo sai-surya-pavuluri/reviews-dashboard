@@ -7,19 +7,26 @@ export default function ManagerDashboard() {
   const [loading, setLoading] = useState(false);
   const [rows, setRows] = useState([]);
   const [filters, setFilters] = useState({
-    listingId: "",
     minRating: "",
     channel: "",
-    // TODO (you): add date range: startDate, endDate
-    approved: "" // "", "true", "false"
+    submitted_at: "",
+    approved: ""
   });
+
+  const [page, setPage] = useState(1);
+  const pageSize = 5;
+
+  const paginatedRows = useMemo(() => {
+    const start = (page - 1) * pageSize;
+    return rows.slice(start, start + pageSize);
+  }, [rows, page]);
+
 
   // --- load
   const load = async () => {
     setLoading(true);
     try {
       const { data } = await fetchReviews({
-        listingId: filters.listingId || undefined,
         minRating: filters.minRating ? Number(filters.minRating) : undefined,
         channel: filters.channel || undefined,
         approved: filters.approved || undefined
@@ -31,7 +38,7 @@ export default function ManagerDashboard() {
     }
   };
 
-  useEffect(()=>{ load();}, [filters.listingId, filters.minRating, filters.channel, filters.approved]);
+  useEffect(()=>{ load();}, [filters.minRating, filters.channel, filters.approved]);
 
   const kpis = useMemo(()=>{
     const rated = rows.filter(r=>r.rating!=null);
@@ -51,11 +58,7 @@ export default function ManagerDashboard() {
   function FiltersBar({ filters, setFilters, loading, reload }) {
     return (
         <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:10, margin:"12px 0"}}>
-        <input
-            placeholder="Listing ID"
-            value={filters.listingId}
-            onChange={e=>setFilters(f=>({...f, listingId:e.target.value}))}
-        />
+        <span>Filters:</span>
         <input
             type="number"
             step="1"
@@ -86,10 +89,10 @@ export default function ManagerDashboard() {
 
   function KpisStrip({ kpis }) {
     return (
-        <div style={{display:"flex", gap:16, margin:"8px 0 16px"}}>
-        <KpiCard label="Total Reviews" value={kpis.count} />
-        <KpiCard label="Avg Rating" value={kpis.avgRating ?? "—"} />
-        <KpiCard label="Approved %" value={`${kpis.percentApproved}%`} />
+        <div style={{display:"flex", justifyContent:"center", gap:16, margin:"8px 0 16px"}}>
+          <KpiCard label="Total Reviews" value={kpis.count} />
+          <KpiCard label="Avg Rating" value={kpis.avgRating ?? "—"} />
+          <KpiCard label="Approved %" value={`${kpis.percentApproved}%`} />
         </div>
     );
   }
@@ -108,25 +111,20 @@ export default function ManagerDashboard() {
         if (!rows.length) return <p>No reviews match your filters.</p>;
 
         return (
-            <table width="100%" cellPadding={6} style={{borderCollapse:"collapse"}}>
+            <table width="100%" cellPadding={6} style={{borderCollapse:"collapse", marginLeft: 40}}>
             <thead>
                 <tr style={{borderBottom:"1px solid #ddd"}}>
                 <Th text="Date" />
-                <Th text="Listing" />
-                <Th text="Guest" />
                 <Th text="Rating" />
                 <Th text="Categories" />
-                <Th text="Text" />
                 <Th text="Channel" />
-                <Th text="Approved" />
+                <Th text="Approve" />
                 </tr>
             </thead>
             <tbody>
                 {rows.map(r=>(
                 <tr key={r.id} style={{borderBottom:"1px solid #f4f4f4"}}>
-                    <td>{r.submittedAt?.slice(0,10) ?? "—"}</td>
-                    <td>{r.listingId}</td>
-                    <td>{r.guestName ?? "—"}</td>
+                    <td>{r.submitted_at?.slice(0,10) ?? "—"}</td>
                     <td>{r.rating ?? "—"}</td>
                     <td> <div style={{display: "flex", gap: 4, flexWrap: "wrap", maxWidth: 160}}>
                         {r.cleanliness_rating != null && (
@@ -146,10 +144,6 @@ export default function ManagerDashboard() {
                         )}
                       </div>
                     </td>
-                  
-                    <td style={{maxWidth:360, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis"}}>
-                    {r.publicText}
-                    </td>
                     <td>{r.channel}</td>
                     <td>
                     <input type="checkbox" checked={!!r.approved} onChange={e=>onToggle(r.id, e.target.checked)} />
@@ -158,6 +152,7 @@ export default function ManagerDashboard() {
                 ))}
             </tbody>
             </table>
+
         );
         }
 
@@ -170,15 +165,22 @@ export default function ManagerDashboard() {
 
   return (
     <div style={{maxWidth:1100, margin:"24px auto", padding:"0 16px"}}>
-      <h2>Reviews Dashboard</h2>
+      <KpisStrip kpis={kpis} />
 
       <FiltersBar filters={filters} setFilters={setFilters} loading={loading} reload={load} />
 
-      <KpisStrip kpis={kpis} />
+      <ReviewsTable rows={paginatedRows} loading={loading} onToggle={onToggle} />
+      <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center", gap: 16 }}>
+        <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} style={{ marginRight: 36, borderRadius: 4, border: "1px solid #ddd", background: "#fff", cursor: "pointer" }}>
+          Prev
+        </button>
+        <span>Page {page} of {Math.ceil(rows.length / pageSize)}</span>
+        <button onClick={() => setPage(p => (p * pageSize < rows.length ? p + 1 : p))} disabled={page * pageSize >= rows.length} style={{borderRadius: 4, border: "1px solid #ddd", background: "#fff", cursor: "pointer" }}>
+          Next
+        </button>
+      </div>
 
-      <ReviewsTable rows={rows} loading={loading} onToggle={onToggle} />
-      
-      <TrendsPanel rows={rows}/>
+      <TrendsPanel rows={rows} />
     </div>
   );
 }
