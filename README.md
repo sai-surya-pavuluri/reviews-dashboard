@@ -70,6 +70,13 @@ source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 python app.py  # Runs at http://localhost:5000
 
+# Load Sample Reviews
+curl -X POST http://localhost:5000/api/reviews/hostaway \
+     -H "Content-Type: application/json" \
+     -d @sample_reviews.json
+     
+Once successfully loaded to the db, the backend will have 50 mocked reviews ready for the dashboard to use.
+
 # Frontend
 cd ui
 npm install

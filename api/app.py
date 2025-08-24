@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask import send_from_directory
 from flask_cors import CORS
 from backend.models import Review
 from api.db import db
@@ -17,6 +18,14 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
+
+@app.route("/")
+def index():
+    return send_from_directory("static", "index.html")
+
+@app.route("/<path:path>")
+def static_proxy(path):
+    return send_from_directory("static", path)
 
 @app.route("/api/health")
 def apiHealth():
