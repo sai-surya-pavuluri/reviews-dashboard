@@ -8,7 +8,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../backend/static")
 CORS(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
@@ -21,11 +21,11 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    return send_from_directory("../backend/static", "index.html")
+    return send_from_directory(app.static_folder, "index.html")
 
 @app.route("/<path:path>")
 def static_proxy(path):
-    return send_from_directory("../backend/static", path)
+    return send_from_directory(app.static_folder, path)
 
 @app.route("/api/health")
 def apiHealth():

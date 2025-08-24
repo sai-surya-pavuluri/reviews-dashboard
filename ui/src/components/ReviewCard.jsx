@@ -14,18 +14,23 @@ export default function ReviewCard({ review }) {
     >
       <div
         style={{
-          padding: "16px",
-          background: "#f9f9f9",
+          padding: "18px",
+          background: "#32810bff",
           fontStyle: "italic",
           fontSize: 15,
-          color: "#333",
+          color: "#ffffffff",
           lineHeight: 1.5,
           minHeight: "120px"
         }}
       >
         “{review.public_review || "No comment provided."}”
+        <br />
+        {review.guest_name && (
+          <span style={{ fontSize: 16, color: "#ffffffff" }}>
+            - <strong>{review.guest_name}</strong>
+          </span>
+        )}
       </div>
-
       <div style={{ padding: "16px" }}>
         <div style={{ fontWeight: "bold", marginBottom: 4 }}>
           {review.guestName}

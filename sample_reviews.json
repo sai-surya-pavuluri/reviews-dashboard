@@ -4,11 +4,11 @@
     {
       "id": 1,
       "type": "guest",
-      "rating": 4,
-      "publicReview": "Great stay, very clean and comfortable!",
+      "rating": 5,
+      "publicReview": "Wonderful experience, will come back again!",
       "reviewCategory": [
         { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 4 },
+        { "category": "communication", "rating": 5 },
         { "category": "respect_house_rules", "rating": 5 }
       ],
       "guestName": "Alice",
@@ -18,6 +18,20 @@
     {
       "id": 2,
       "type": "guest",
+      "rating": 4,
+      "publicReview": "Great stay, very clean and comfortable!",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 5 },
+        { "category": "communication", "rating": 4 },
+        { "category": "respect_house_rules", "rating": 5 }
+      ],
+      "guestName": "Bob",
+      "listingName": "Modern Flat",
+      "submittedAt": "2023-11-02T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "type": "guest",
       "rating": 3,
       "publicReview": "Good location, but noisy neighbors.",
       "reviewCategory": [
@@ -25,68 +39,26 @@
         { "category": "communication", "rating": 4 },
         { "category": "respect_house_rules", "rating": 3 }
       ],
-      "guestName": "Bob",
-      "listingName": "City Apartment",
-      "submittedAt": "2023-11-03T14:30:00Z"
-    },
-    {
-      "id": 3,
-      "type": "guest",
-      "rating": 5,
-      "publicReview": "Fantastic host and cozy place.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 5 },
-        { "category": "respect_house_rules", "rating": 5 }
-      ],
       "guestName": "Clara",
-      "listingName": "Cozy Cottage",
-      "submittedAt": "2023-11-05T10:00:00Z"
+      "listingName": "Modern Flat",
+      "submittedAt": "2023-11-03T15:30:00Z"
     },
     {
       "id": 4,
       "type": "guest",
       "rating": 2,
-      "publicReview": "Dirty bathroom and poor communication.",
+      "publicReview": "Bathroom was not clean, host unresponsive.",
       "reviewCategory": [
         { "category": "cleanliness", "rating": 1 },
         { "category": "communication", "rating": 2 },
         { "category": "respect_house_rules", "rating": 2 }
       ],
       "guestName": "David",
-      "listingName": "Budget Room",
-      "submittedAt": "2023-11-06T18:45:00Z"
+      "listingName": "Modern Flat",
+      "submittedAt": "2023-11-04T09:20:00Z"
     },
     {
       "id": 5,
-      "type": "guest",
-      "rating": 5,
-      "publicReview": "Wonderful experience, will come back again!",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 5 },
-        { "category": "respect_house_rules", "rating": 5 }
-      ],
-      "guestName": "Ella",
-      "listingName": "Luxury Suite",
-      "submittedAt": "2023-11-08T11:20:00Z"
-    },
-    {
-      "id": 6,
-      "type": "guest",
-      "rating": 3,
-      "publicReview": "Decent value for money.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 3 },
-        { "category": "communication", "rating": 3 },
-        { "category": "respect_house_rules", "rating": 3 }
-      ],
-      "guestName": "Frank",
-      "listingName": "Studio Apartment",
-      "submittedAt": "2023-11-10T09:10:00Z"
-    },
-    {
-      "id": 7,
       "type": "guest",
       "rating": 4,
       "publicReview": "Nice view and comfy bed.",
@@ -95,152 +67,55 @@
         { "category": "communication", "rating": 4 },
         { "category": "respect_house_rules", "rating": 4 }
       ],
-      "guestName": "Grace",
-      "listingName": "Seaside House",
-      "submittedAt": "2023-11-12T16:30:00Z"
+      "guestName": "Ella",
+      "listingName": "Modern Flat",
+      "submittedAt": "2023-11-05T11:00:00Z"
     },
+
     {
-      "id": 8,
-      "type": "guest",
-      "rating": 1,
-      "publicReview": "Terrible experience, not recommended.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 1 },
-        { "category": "communication", "rating": 1 },
-        { "category": "respect_house_rules", "rating": 1 }
-      ],
-      "guestName": "Hank",
-      "listingName": "Shared Room",
-      "submittedAt": "2023-11-14T13:55:00Z"
-    },
-    {
-      "id": 9,
-      "type": "guest",
-      "rating": 4,
-      "publicReview": "Quiet neighborhood and good amenities.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 4 },
-        { "category": "respect_house_rules", "rating": 5 }
-      ],
-      "guestName": "Irene",
-      "listingName": "Suburban House",
-      "submittedAt": "2023-11-16T07:45:00Z"
-    },
-    {
-      "id": 10,
+      "id": 6,
       "type": "guest",
       "rating": 5,
-      "publicReview": "Exceptional service and beautiful place.",
+      "publicReview": "Fantastic host and cozy place.",
       "reviewCategory": [
         { "category": "cleanliness", "rating": 5 },
         { "category": "communication", "rating": 5 },
         { "category": "respect_house_rules", "rating": 5 }
       ],
-      "guestName": "Jake",
-      "listingName": "Mountain Cabin",
-      "submittedAt": "2023-11-18T15:00:00Z"
+      "guestName": "Alice",
+      "listingName": "City Apartment",
+      "submittedAt": "2023-11-06T10:00:00Z"
     },
     {
-      "id": 11,
+      "id": 7,
       "type": "guest",
       "rating": 3,
-      "publicReview": "Good stay",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 2 },
-        { "category": "communication", "rating": 3 },
-        { "category": "respect_house_rules", "rating": 4 }
-      ],
-      "guestName": "Malice",
-      "listingName": "Western Flat",
-      "submittedAt": "2023-11-01T12:00:00Z"
-    },
-    {
-      "id": 12,
-      "type": "guest",
-      "rating": 4,
-      "publicReview": "Nice location.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 4 },
-        { "category": "respect_house_rules", "rating": 4 }
-      ],
-      "guestName": "Bob Miller",
-      "listingName": "Town Apartment",
-      "submittedAt": "2023-11-03T14:30:00Z"
-    },
-    {
-      "id": 13,
-      "type": "guest",
-      "rating": 5,
-      "publicReview": "Fantastic place.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 5 },
-        { "category": "respect_house_rules", "rating": 5 }
-      ],
-      "guestName": "Chloe",
-      "listingName": "Cool Cottage",
-      "submittedAt": "2023-11-05T10:00:00Z"
-    },
-    {
-      "id": 14,
-      "type": "guest",
-      "rating": 2,
-      "publicReview": "Excellent.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 5 },
-        { "category": "respect_house_rules", "rating": 5 }
-      ],
-      "guestName": "Boon",
-      "listingName": "Budget Friendly Room",
-      "submittedAt": "2023-11-06T18:45:00Z"
-    },
-    {
-      "id": 15,
-      "type": "guest",
-      "rating": 1,
-      "publicReview": "Worst experience",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 1 },
-        { "category": "communication", "rating": 1 },
-        { "category": "respect_house_rules", "rating": 1 }
-      ],
-      "guestName": "Bella",
-      "listingName": "Cheap Suite",
-      "submittedAt": "2023-11-08T11:20:00Z"
-    },
-    {
-      "id": 16,
-      "type": "guest",
-      "rating": 3,
-      "publicReview": "Value for money.",
+      "publicReview": "Decent value for money.",
       "reviewCategory": [
         { "category": "cleanliness", "rating": 3 },
         { "category": "communication", "rating": 3 },
         { "category": "respect_house_rules", "rating": 3 }
       ],
-      "guestName": "Chapra",
-      "listingName": "Studio",
-      "submittedAt": "2023-11-10T09:10:00Z"
+      "guestName": "Bob",
+      "listingName": "City Apartment",
+      "submittedAt": "2023-11-07T09:15:00Z"
     },
     {
-      "id": 17,
+      "id": 8,
       "type": "guest",
-      "rating": 2,
-      "publicReview": "Nice view but poor maintenance.",
+      "rating": 4,
+      "publicReview": "Quiet neighborhood and good amenities.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 1 },
-        { "category": "communication", "rating": 3 },
-        { "category": "respect_house_rules", "rating": 2 }
+        { "category": "cleanliness", "rating": 4 },
+        { "category": "communication", "rating": 4 },
+        { "category": "respect_house_rules", "rating": 5 }
       ],
-      "guestName": "Disgrace",
-      "listingName": "Beachside Mouse",
-      "submittedAt": "2023-11-12T16:30:00Z"
+      "guestName": "Clara",
+      "listingName": "City Apartment",
+      "submittedAt": "2023-11-08T13:40:00Z"
     },
     {
-      "id": 18,
+      "id": 9,
       "type": "guest",
       "rating": 1,
       "publicReview": "Terrible experience, not recommended.",
@@ -249,757 +124,165 @@
         { "category": "communication", "rating": 1 },
         { "category": "respect_house_rules", "rating": 1 }
       ],
-      "guestName": "Tom",
-      "listingName": "Shared Room",
-      "submittedAt": "2023-11-14T13:55:00Z"
+      "guestName": "David",
+      "listingName": "City Apartment",
+      "submittedAt": "2023-11-09T08:00:00Z"
     },
     {
-      "id": 19,
-      "type": "guest",
-      "rating": 4,
-      "publicReview": "Quiet neighborhood and good amenities.",
-      "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 4 },
-        { "category": "respect_house_rules", "rating": 4 }
-      ],
-      "guestName": "Dunnes",
-      "listingName": "Rural House",
-      "submittedAt": "2023-11-16T07:45:00Z"
-    },
-    {
-      "id": 20,
+      "id": 10,
       "type": "guest",
       "rating": 5,
-      "publicReview": "Exceptional service and beautiful place.",
+      "publicReview": "Exceptional service and beautiful apartment.",
       "reviewCategory": [
         { "category": "cleanliness", "rating": 5 },
         { "category": "communication", "rating": 5 },
         { "category": "respect_house_rules", "rating": 5 }
       ],
-      "guestName": "Jacob",
-      "listingName": "Fountain Cabin",
-      "submittedAt": "2023-11-18T15:00:00Z"
+      "guestName": "Ella",
+      "listingName": "City Apartment",
+      "submittedAt": "2023-11-10T16:10:00Z"
     },
+
     {
-      "id": 21,
+      "id": 11,
       "type": "guest",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 4,
+      "publicReview": "Great location, very modern interior.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 3.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
-      ],
-      "guestName": "Hannah",
-      "listingName": "Soho Loft",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 22,
-      "type": "host",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
-      ],
-      "guestName": "Fiona",
-      "listingName": "Soho Loft",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 23,
-      "type": "host",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "George",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 24,
-      "type": "host",
-      "status": "published",
-      "rating": 4.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
-      ],
-      "guestName": "Ian",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 25,
-      "type": "guest",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "Diana",
-      "listingName": "Soho Loft",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 26,
-      "type": "host",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "George",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-15T00:00:00"
-    },
-    {
-      "id": 27,
-      "type": "guest",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 3.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
-      ],
-      "guestName": "George",
-      "listingName": "Soho Loft",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 28,
-      "type": "guest",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 5.0
-        }
-      ],
-      "guestName": "Bob",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-24T00:00:00"
-    },
-    {
-      "id": 29,
-      "type": "host",
-      "status": "published",
-      "rating": 4.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "George",
-      "listingName": "Greenwich Home",
-      "submittedAt": "2025-08-15T00:00:00"
-    },
-    {
-      "id": 30,
-      "type": "guest",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 3.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
+        { "category": "cleanliness", "rating": 5 },
+        { "category": "communication", "rating": 4 },
+        { "category": "respect_house_rules", "rating": 4 }
       ],
       "guestName": "Alice",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-15T00:00:00"
+      "listingName": "Luxury Suite",
+      "submittedAt": "2023-11-11T11:30:00Z"
     },
     {
-      "id": 31,
+      "id": 12,
       "type": "guest",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 3,
+      "publicReview": "Average stay, expected better for the price.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 3.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
-      ],
-      "guestName": "Hannah",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 32,
-      "type": "host",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 5.0
-        }
+        { "category": "cleanliness", "rating": 3 },
+        { "category": "communication", "rating": 3 },
+        { "category": "respect_house_rules", "rating": 3 }
       ],
       "guestName": "Bob",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-15T00:00:00"
+      "listingName": "Luxury Suite",
+      "submittedAt": "2023-11-12T18:00:00Z"
     },
     {
-      "id": 33,
+      "id": 13,
       "type": "guest",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 5,
+      "publicReview": "Absolutely stunning property.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 3.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
+        { "category": "cleanliness", "rating": 5 },
+        { "category": "communication", "rating": 5 },
+        { "category": "respect_house_rules", "rating": 5 }
       ],
-      "guestName": "Fiona",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
+      "guestName": "Clara",
+      "listingName": "Luxury Suite",
+      "submittedAt": "2023-11-13T14:20:00Z"
     },
     {
-      "id": 34,
-      "type": "host",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 5.0
-        }
-      ],
-      "guestName": "Julia",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-20T00:00:00"
-    },
-    {
-      "id": 35,
-      "type": "host",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 3.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
-      ],
-      "guestName": "Ian",
-      "listingName": "Greenwich Home",
-      "submittedAt": "2025-08-19T00:00:00"
-    },
-    {
-      "id": 36,
-      "type": "host",
-      "status": "published",
-      "rating": 4.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 3.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "Charlie",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-21T00:00:00"
-    },
-    {
-      "id": 37,
+      "id": 14,
       "type": "guest",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 2,
+      "publicReview": "Beautiful room but poor service.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
+        { "category": "cleanliness", "rating": 2 },
+        { "category": "communication", "rating": 2 },
+        { "category": "respect_house_rules", "rating": 3 }
+      ],
+      "guestName": "David",
+      "listingName": "Luxury Suite",
+      "submittedAt": "2023-11-14T12:00:00Z"
+    },
+    {
+      "id": 15,
+      "type": "guest",
+      "rating": 4,
+      "publicReview": "Spacious and comfortable stay.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 4 },
+        { "category": "communication", "rating": 4 },
+        { "category": "respect_house_rules", "rating": 4 }
+      ],
+      "guestName": "Ella",
+      "listingName": "Luxury Suite",
+      "submittedAt": "2023-11-15T08:30:00Z"
+    },
+
+    {
+      "id": 16,
+      "type": "guest",
+      "rating": 5,
+      "publicReview": "Charming cottage, perfect getaway!",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 5 },
+        { "category": "communication", "rating": 5 },
+        { "category": "respect_house_rules", "rating": 5 }
       ],
       "guestName": "Alice",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-16T00:00:00"
+      "listingName": "Cozy Cottage",
+      "submittedAt": "2023-11-16T10:15:00Z"
     },
     {
-      "id": 38,
-      "type": "host",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 3.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "Alice",
-      "listingName": "Soho Loft",
-      "submittedAt": "2025-08-25T00:00:00"
-    },
-    {
-      "id": 39,
+      "id": 17,
       "type": "guest",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 4,
+      "publicReview": "Peaceful area, enjoyed our stay.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
-      ],
-      "guestName": "Fiona",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-17T00:00:00"
-    },
-    {
-      "id": 40,
-      "type": "host",
-      "status": "published",
-      "rating": 4.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
+        { "category": "cleanliness", "rating": 4 },
+        { "category": "communication", "rating": 4 },
+        { "category": "respect_house_rules", "rating": 4 }
       ],
       "guestName": "Bob",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-15T00:00:00"
+      "listingName": "Cozy Cottage",
+      "submittedAt": "2023-11-17T09:40:00Z"
     },
     {
-      "id": 41,
-      "type": "host",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
-      ],
-      "guestName": "Diana",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-15T00:00:00"
-    },
-    {
-      "id": 42,
+      "id": 18,
       "type": "guest",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 3,
+      "publicReview": "Nice place but needs better maintenance.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
+        { "category": "cleanliness", "rating": 3 },
+        { "category": "communication", "rating": 3 },
+        { "category": "respect_house_rules", "rating": 3 }
       ],
-      "guestName": "Julia",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-15T00:00:00"
+      "guestName": "Clara",
+      "listingName": "Cozy Cottage",
+      "submittedAt": "2023-11-18T07:25:00Z"
     },
     {
-      "id": 43,
+      "id": 19,
       "type": "guest",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 2,
+      "publicReview": "Damp smell in the room, disappointing.",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 3.5
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
+        { "category": "cleanliness", "rating": 2 },
+        { "category": "communication", "rating": 2 },
+        { "category": "respect_house_rules", "rating": 2 }
       ],
-      "guestName": "Julia",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-15T00:00:00"
+      "guestName": "David",
+      "listingName": "Cozy Cottage",
+      "submittedAt": "2023-11-19T20:00:00Z"
     },
     {
-      "id": 44,
+      "id": 20,
       "type": "guest",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "rating": 5,
+      "publicReview": "Amazing experience, highly recommend!",
       "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 3.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 5.0
-        }
+        { "category": "cleanliness", "rating": 5 },
+        { "category": "communication", "rating": 5 },
+        { "category": "respect_house_rules", "rating": 5 }
       ],
-      "guestName": "Fiona",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 45,
-      "type": "host",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.0
-        }
-      ],
-      "guestName": "Charlie",
-      "listingName": "Soho Loft",
-      "submittedAt": "2025-08-15T00:00:00"
-    },
-    {
-      "id": 46,
-      "type": "host",
-      "status": "published",
-      "rating": 4.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
-      ],
-      "guestName": "Julia",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 47,
-      "type": "host",
-      "status": "published",
-      "rating": 5.0,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 3.5
-        }
-      ],
-      "guestName": "Fiona",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-23T00:00:00"
-    },
-    {
-      "id": 48,
-      "type": "guest",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 4.0
-        },
-        {
-          "category": "communication",
-          "rating": 4.5
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "Ian",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-17T00:00:00"
-    },
-    {
-      "id": 49,
-      "type": "host",
-      "status": "published",
-      "rating": 3.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 5.0
-        },
-        {
-          "category": "communication",
-          "rating": 5.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "Charlie",
-      "listingName": "London Bridge Apt",
-      "submittedAt": "2025-08-16T00:00:00"
-    },
-    {
-      "id": 50,
-      "type": "host",
-      "status": "published",
-      "rating": 4.5,
-      "publicReview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "reviewCategory": [
-        {
-          "category": "cleanliness",
-          "rating": 3.5
-        },
-        {
-          "category": "communication",
-          "rating": 4.0
-        },
-        {
-          "category": "respect_house_rules",
-          "rating": 4.5
-        }
-      ],
-      "guestName": "George",
-      "listingName": "Camden Town Flat",
-      "submittedAt": "2025-08-15T00:00:00"
+      "guestName": "Ella",
+      "listingName": "Cozy Cottage",
+      "submittedAt": "2023-11-20T15:10:00Z"
     }
   ]
 }
