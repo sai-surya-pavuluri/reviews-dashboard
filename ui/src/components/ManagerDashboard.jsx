@@ -15,7 +15,7 @@ export default function ManagerDashboard() {
 
 
   const [page, setPage] = useState(1);
-  const pageSize = 5;
+  const pageSize = 10;
   const [showFilters, setShowFilters] = useState(false);
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 
@@ -177,11 +177,11 @@ export default function ManagerDashboard() {
         <thead>
           <tr style={{ borderBottom: "1px solid #ddd" }}>
             <Th text="Date" sortKey="submitted_at" />
+            <Th text="Property" sortKey="listing_name" />
             <Th text="Overall Rating" sortKey="rating" />
             <Th text="Cleanliness" sortKey="cleanliness_rating" />
             <Th text="Communication" sortKey="communication_rating" />
             <Th text="House Rules" sortKey="respect_house_rules_rating" />
-            <Th text="Property" sortKey="listing_name" />
             <Th text="Approve" />
           </tr>
         </thead>
@@ -189,11 +189,11 @@ export default function ManagerDashboard() {
           {rows.map(r => (
             <tr key={r.id} style={{ borderBottom: "1px solid #f4f4f4" }}>
               <td>{r.submitted_at?.slice(0, 10) ?? "—"}</td>
+              <td>{r.listing_name}</td>
               <td>{r.rating ?? "—"}</td>
               <td>{r.cleanliness_rating ?? "—"}</td>
               <td>{r.communication_rating ?? "—"}</td>
               <td>{r.respect_house_rules_rating ?? "—"}</td>
-              <td>{r.listing_name}</td>
               <td>
                 <input type="checkbox" checked={!!r.approved} onChange={e => onToggle(r.id, e.target.checked)} />
               </td>
@@ -206,8 +206,33 @@ export default function ManagerDashboard() {
 
   return (
     <div style={{ width: "100%", maxWidth: 1100, margin: "24px auto", padding: "0 16px" }}>
-      <KpisStrip kpis={kpis} />
-      <TrendsPanel rows={rows} />
+      <div
+        style={{
+          display: "flex",
+          gap: 24,
+          justifyContent: "space-between",
+          margin: "24px 0"
+        }}
+      >
+        
+        <div style={{ 
+          flex: "0 0 35%", 
+          display: "flex", 
+          flexDirection: "column", 
+          gap: 16,
+          paddingTop: 24
+        }}>
+
+          <KpiCard label="Total Reviews" value={kpis.count} />
+          <KpiCard label="Avg Rating" value={kpis.avgRating ?? "—"} />
+          <KpiCard label="Approved %" value={`${kpis.percentApproved}%`} />
+        </div>
+
+      
+        <div style={{ flex: "0 0 60%" }}>
+          <TrendsPanel rows={rows} />
+        </div>
+      </div>
       <button
         onClick={() => setShowFilters(f => !f)}
         style={{
