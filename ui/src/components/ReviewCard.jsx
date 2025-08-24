@@ -31,10 +31,9 @@ export default function ReviewCard({ review }) {
           {review.guestName}
         </div>
         <div style={{ color: "#888", fontSize: 14 }}>
-          {review.submittedAt?.slice(0, 10)} &nbsp;|&nbsp; ⭐{" "}
-          {review.rating ?? "—"}/5
+          {review.submittedAt?.slice(0, 10)} &nbsp; 
+          Rating: ⭐ {review.rating ?? "—"}/5
         </div>
-
         <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
           {review.cleanliness_rating != null && (
             <Tag label="🧼 Cleanliness:" value={review.cleanliness_rating} />
