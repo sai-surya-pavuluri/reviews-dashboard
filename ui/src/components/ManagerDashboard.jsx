@@ -22,7 +22,6 @@ export default function ManagerDashboard() {
   const load = async () => {
     setLoading(true);
     try {
-      alert("Listing Name Filter: " + String(filters.listingName));
       const { data } = await fetchReviews({
         
         minRating: filters.minRating ? Number(filters.minRating) : undefined,
@@ -181,8 +180,8 @@ export default function ManagerDashboard() {
             <Th text="Overall Rating" sortKey="rating" />
             <Th text="Cleanliness" sortKey="cleanliness_rating" />
             <Th text="Communication" sortKey="communication_rating" />
-            <Th text="Respect" sortKey="respect_house_rules_rating" />
-            <Th text="Channel" sortKey="channel" />
+            <Th text="House Rules" sortKey="respect_house_rules_rating" />
+            <Th text="Property" sortKey="listing_name" />
             <Th text="Approve" />
           </tr>
         </thead>
@@ -194,7 +193,7 @@ export default function ManagerDashboard() {
               <td>{r.cleanliness_rating ?? "—"}</td>
               <td>{r.communication_rating ?? "—"}</td>
               <td>{r.respect_house_rules_rating ?? "—"}</td>
-              <td>{r.channel}</td>
+              <td>{r.listing_name}</td>
               <td>
                 <input type="checkbox" checked={!!r.approved} onChange={e => onToggle(r.id, e.target.checked)} />
               </td>
@@ -208,7 +207,7 @@ export default function ManagerDashboard() {
   return (
     <div style={{ width: "100%", maxWidth: 1100, margin: "24px auto", padding: "0 16px" }}>
       <KpisStrip kpis={kpis} />
-
+      <TrendsPanel rows={rows} />
       <button
         onClick={() => setShowFilters(f => !f)}
         style={{
@@ -239,7 +238,6 @@ export default function ManagerDashboard() {
         </button>
       </div>
 
-      <TrendsPanel rows={rows} />
     </div>
   );
 }
