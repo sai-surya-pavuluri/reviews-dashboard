@@ -9,9 +9,10 @@ export default function ManagerDashboard() {
   const [filters, setFilters] = useState({
     minRating: "",
     channel: "",
-    submitted_at: "",
-    approved: ""
+    approved: "",
+    listingName: ""
   });
+
 
   const [page, setPage] = useState(1);
   const pageSize = 5;
@@ -21,10 +22,13 @@ export default function ManagerDashboard() {
   const load = async () => {
     setLoading(true);
     try {
+      alert("Listing Name Filter: " + String(filters.listingName));
       const { data } = await fetchReviews({
+        
         minRating: filters.minRating ? Number(filters.minRating) : undefined,
         channel: filters.channel || undefined,
-        approved: filters.approved || undefined
+        approved: filters.approved || undefined,
+        listingName: filters.listingName || undefined
       });
       setRows(data.reviews || []);
     } finally {
@@ -32,7 +36,7 @@ export default function ManagerDashboard() {
     }
   };
 
-  useEffect(() => { load(); }, [filters.minRating, filters.channel, filters.approved]);
+  useEffect(() => { load(); }, [filters.minRating, filters.channel, filters.approved, filters.listingName]);
 
   const sortedRows = useMemo(() => {
     let sorted = [...rows];
@@ -114,6 +118,18 @@ export default function ManagerDashboard() {
             <option value="false">Unapproved</option>
           </select>
         </div>
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600 }}>Property</div>
+          <select
+            value={filters.listingName}
+            onChange={e => setFilters(f => ({ ...f, listingName: e.target.value }))}
+          >
+            <option value="">Any</option>
+            {Array.from(new Set(rows.map(r => r.listing_name))).map(name => (
+              <option key={name} value={name}>{name}</option>
+            ))}
+          </select>
+        </div>
       </div>
     );
   }
@@ -129,7 +145,7 @@ export default function ManagerDashboard() {
     return (
       <th onClick={toggleSort} style={{ cursor: "pointer", userSelect: "none", padding: "8px 6px", fontWeight: 600 }}>
         {text}
-        {sortConfig.key === sortKey && (sortConfig.direction === "asc" ? " 🔼" : " 🔽")}
+        {sortConfig.key === sortKey && (sortConfig.direction === "asc" ? " ▲" : " ▼")}
       </th>
     );
   }
@@ -158,7 +174,7 @@ export default function ManagerDashboard() {
     if (!rows.length) return <p>No reviews match your filters.</p>;
 
     return (
-      <table width="100%" cellPadding={6} style={{ borderCollapse: "collapse"}}>
+      <table width="100%" cellPadding={6} style={{ borderCollapse: "collapse" }}>
         <thead>
           <tr style={{ borderBottom: "1px solid #ddd" }}>
             <Th text="Date" sortKey="submitted_at" />

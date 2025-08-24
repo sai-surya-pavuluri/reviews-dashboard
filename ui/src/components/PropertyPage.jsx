@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchReviews, fetchReviewsByFilters } from "../api";
+import { fetchReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 import propertyImage from '../assets/property.png';
 
@@ -11,7 +11,7 @@ export default function PropertyPage() {
     const load = async () => {
       setLoading(true);
       try {
-        const { data } = await fetchReviewsByFilters({ approved: "true" });
+        const { data } = await fetchReviews({ approved: "true" });
         setReviews(data.reviews || []);
       } finally {
         setLoading(false);

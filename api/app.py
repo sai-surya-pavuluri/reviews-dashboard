@@ -68,30 +68,29 @@ def createReview():
 
     return {"inserted_ids": inserted_ids}, 201
 
-@app.route("/api/reviews", methods=["GET"])
+@app.route("/api/reviews/", methods=["GET"])
 def retrieveReviews():
-    listing_id = request.args.get("listingId")
+    listing_name = request.args.get("listingName")
     min_rating = request.args.get("minRating", type=float)
     approved = request.args.get("approved")
     channel = request.args.get("channel")
 
     query = Review.query
 
-    if listing_id:
-        query = query.filter_by(listing_id=listing_id)
-    if min_rating:
+    if listing_name and listing_name != 'undefined':
+        query = query.filter_by(listing_name=listing_name)
+    if min_rating and min_rating != 'undefined':
         query = query.filter(Review.rating >= min_rating)
-    if approved in ["true", "false"]:
+    if approved in ["true", "false"] :
         query = query.filter_by(approved=(approved == "true"))
-    if channel:
+    if channel and channel != 'undefined':
         query = query.filter_by(channel=channel)
-
     reviews = query.all()
     return {"reviews": [r.to_dict() for r in reviews]}
 
 
 @app.route("/api/reviews/<int:review_id>", methods=['PATCH'])
-def approveReview(review_id):
+def modifyReview(review_id):
     review = Review.query.get(review_id)
     if not review:
         return {"error": "Review not found"}, 404
